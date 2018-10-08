@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RegisterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="custom_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="admin_email" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="smtp_domain" Type="nvarchar" MaxLength="50" />
+          <Property Name="port" Type="int" />
+          <Property Name="notify_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="theme" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_ID" Type="nvarchar" MaxLength="128" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="url" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Notifies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notify1" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Personal_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Personals">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Insider_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Insider_Name_arabic" Type="nvarchar" MaxLength="200" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Company_Name_arabic" Type="nvarchar" MaxLength="200" />
+          <Property Name="Position" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Position_arabic" Type="nvarchar" MaxLength="200" />
+          <Property Name="UAE_Resident" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="UAE_Resident_arabic" Type="nvarchar" MaxLength="200" />
+          <Property Name="Emirates_ID" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Passport_Number" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Mobile_Number" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Office_Number" Type="nvarchar" MaxLength="200" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email_Address_2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Trade_License" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Security_Code" Type="nvarchar" MaxLength="200" />
+          <Property Name="Other_information" Type="nvarchar" MaxLength="200" />
+          <Property Name="ID_Expire_Date" Type="datetime" />
+          <Property Name="ID_Upload" Type="nvarchar" MaxLength="200" />
+          <Property Name="Passport_Expire_Date" Type="datetime" />
+          <Property Name="Passport_Upload" Type="nvarchar" MaxLength="200" />
+          <Property Name="Company_TL_Expire_Date" Type="datetime" />
+          <Property Name="Comany_TL_Upload" Type="nvarchar" MaxLength="200" />
+          <Property Name="status" Type="nvarchar" MaxLength="200" />
+          <Property Name="Comany_Image_Upload" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_custom_setting_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="custom_setting" Type="Self.custom_setting" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="custom_setting">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notify_Personal">
+          <End Role="Personals" Type="Self.Personals" Multiplicity="0..1" />
+          <End Role="Notifies" Type="Self.Notifies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personals">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifies">
+              <PropertyRef Name="Personal_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Personal">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Personals" Type="Self.Personals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personals">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegisterDBModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="custom_setting" EntityType="Self.custom_setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifies" EntityType="Self.Notifies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personals" EntityType="Self.Personals" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_custom_setting_AspNetUsers" Association="Self.FK_custom_setting_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="custom_setting" EntitySet="custom_setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_AspNetUsers" Association="Self.FK_Event_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notify_Personal" Association="Self.FK_Notify_Personal">
+            <End Role="Personals" EntitySet="Personals" />
+            <End Role="Notifies" EntitySet="Notifies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Personal" Association="Self.FK_Personal_Personal">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Personals" EntitySet="Personals" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegisterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RegisterDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUserClaims" EntityType="RegisterDBModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="RegisterDBModel.AspNetUserLogin" />
+          <EntitySet Name="Notifies" EntityType="RegisterDBModel.Notify" />
+          <EntitySet Name="Personals" EntityType="RegisterDBModel.Personal" />
+          <AssociationSet Name="FK_Notify_Personal" Association="RegisterDBModel.FK_Notify_Personal">
+            <End EntitySet="Personals" Role="Personal" />
+            <End EntitySet="Notifies" Role="Notify" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="RegisterDBModel.Event" />
+          <EntitySet Name="AspNetRoles" EntityType="RegisterDBModel.AspNetRole" />
+          <EntitySet Name="AspNetUserRoles" EntityType="RegisterDBModel.AspNetUserRole" />
+          <EntitySet Name="AspNetUsers" EntityType="RegisterDBModel.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End EntitySet="AspNetRoles" Role="AspNetRole" />
+            <End EntitySet="AspNetUserRoles" Role="AspNetUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="RegisterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="AspNetUserClaims" Role="AspNetUserClaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="RegisterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="AspNetUserLogins" Role="AspNetUserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="AspNetUserRoles" Role="AspNetUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_AspNetUsers" Association="RegisterDBModel.FK_Event_AspNetUsers">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="Events" Role="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Personal" Association="RegisterDBModel.FK_Personal_Personal">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="Personals" Role="Personal" />
+          </AssociationSet>
+          <EntitySet Name="custom_setting" EntityType="RegisterDBModel.custom_setting" />
+          <AssociationSet Name="FK_custom_setting_AspNetUsers" Association="RegisterDBModel.FK_custom_setting_AspNetUsers">
+            <End EntitySet="AspNetUsers" Role="AspNetUser" />
+            <End EntitySet="custom_setting" Role="custom_setting" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ClaimType" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ClaimValue" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ProviderKey" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="Notify">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Notify1" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Personal_Id" Type="Int32" />
+          <NavigationProperty Name="Personal" Relationship="RegisterDBModel.FK_Notify_Personal" FromRole="Notify" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Insider_Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Insider_Name_arabic" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Company_Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Company_Name_arabic" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Position" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Position_arabic" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="UAE_Resident" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="UAE_Resident_arabic" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Emirates_ID" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Passport_Number" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Mobile_Number" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Office_Number" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="User_Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Email_Address_2" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Trade_License" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Security_Code" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Other_information" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ID_Expire_Date" Precision="3" Type="DateTime" />
+          <Property Name="ID_Upload" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Passport_Expire_Date" Precision="3" Type="DateTime" />
+          <Property Name="Passport_Upload" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Company_TL_Expire_Date" Precision="3" Type="DateTime" />
+          <Property Name="Comany_TL_Upload" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="status" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Comany_Image_Upload" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="Notifies" Relationship="RegisterDBModel.FK_Notify_Personal" FromRole="Personal" ToRole="Notify" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_Personal_Personal" FromRole="Personal" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_Notify_Personal">
+          <End Type="RegisterDBModel.Personal" Multiplicity="0..1" Role="Personal" />
+          <End Type="RegisterDBModel.Notify" Multiplicity="*" Role="Notify" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notify">
+              <PropertyRef Name="Personal_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="User_ID" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="title" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="description" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date" Precision="3" Type="DateTime" />
+          <Property Name="end_date" Precision="3" Type="DateTime" />
+          <Property Name="url" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_Event_AspNetUsers" FromRole="Event" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUserRoles" Relationship="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRole" ToRole="AspNetUserRole" />
+        </EntityType>
+        <EntityType Name="AspNetUserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RoleId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetRole" Relationship="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRole" ToRole="AspNetRole" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Email" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="EmailConfirmed" Nullable="false" Type="Boolean" />
+          <Property Name="PasswordHash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="SecurityStamp" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PhoneNumber" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PhoneNumberConfirmed" Nullable="false" Type="Boolean" />
+          <Property Name="TwoFactorEnabled" Nullable="false" Type="Boolean" />
+          <Property Name="LockoutEndDateUtc" Precision="3" Type="DateTime" />
+          <Property Name="LockoutEnabled" Nullable="false" Type="Boolean" />
+          <Property Name="AccessFailedCount" Nullable="false" Type="Int32" />
+          <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="RegisterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="RegisterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetUserRoles" Relationship="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserRole" />
+          <NavigationProperty Name="Events" Relationship="RegisterDBModel.FK_Event_AspNetUsers" FromRole="AspNetUser" ToRole="Event" />
+          <NavigationProperty Name="Personals" Relationship="RegisterDBModel.FK_Personal_Personal" FromRole="AspNetUser" ToRole="Personal" />
+          <NavigationProperty Name="custom_setting" Relationship="RegisterDBModel.FK_custom_setting_AspNetUsers" FromRole="AspNetUser" ToRole="custom_setting" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Type="RegisterDBModel.AspNetRole" Multiplicity="1" Role="AspNetRole">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RegisterDBModel.AspNetUserRole" Multiplicity="*" Role="AspNetUserRole" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="1" Role="AspNetUser">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RegisterDBModel.AspNetUserClaim" Multiplicity="*" Role="AspNetUserClaim" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="1" Role="AspNetUser">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RegisterDBModel.AspNetUserLogin" Multiplicity="*" Role="AspNetUserLogin" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="1" Role="AspNetUser">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="RegisterDBModel.AspNetUserRole" Multiplicity="*" Role="AspNetUserRole" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_AspNetUsers">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="0..1" Role="AspNetUser" />
+          <End Type="RegisterDBModel.Event" Multiplicity="*" Role="Event" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Personal">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="1" Role="AspNetUser" />
+          <End Type="RegisterDBModel.Personal" Multiplicity="*" Role="Personal" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="custom_setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="admin_email" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="smtp_domain" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="port" Type="Int32" />
+          <Property Name="notify_email" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="theme" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+          <NavigationProperty Name="AspNetUser" Relationship="RegisterDBModel.FK_custom_setting_AspNetUsers" FromRole="custom_setting" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_custom_setting_AspNetUsers">
+          <End Type="RegisterDBModel.AspNetUser" Multiplicity="1" Role="AspNetUser" />
+          <End Type="RegisterDBModel.custom_setting" Multiplicity="0..1" Role="custom_setting" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="custom_setting">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RegisterDBModelStoreContainer" CdmEntityContainer="RegisterDBEntities">
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.AspNetUserClaim)">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.AspNetUserLogin)">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifies">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.Notify)">
+        <MappingFragment StoreEntitySet="Notifies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Notify1" ColumnName="Notify1" />
+          <ScalarProperty Name="Personal_Id" ColumnName="Personal_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personals">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.Personal)">
+        <MappingFragment StoreEntitySet="Personals">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Insider_Name" ColumnName="Insider_Name" />
+          <ScalarProperty Name="Insider_Name_arabic" ColumnName="Insider_Name_arabic" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_Name_arabic" ColumnName="Company_Name_arabic" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Position_arabic" ColumnName="Position_arabic" />
+          <ScalarProperty Name="UAE_Resident" ColumnName="UAE_Resident" />
+          <ScalarProperty Name="UAE_Resident_arabic" ColumnName="UAE_Resident_arabic" />
+          <ScalarProperty Name="Emirates_ID" ColumnName="Emirates_ID" />
+          <ScalarProperty Name="Passport_Number" ColumnName="Passport_Number" />
+          <ScalarProperty Name="Mobile_Number" ColumnName="Mobile_Number" />
+          <ScalarProperty Name="Office_Number" ColumnName="Office_Number" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Email_Address_2" ColumnName="Email_Address_2" />
+          <ScalarProperty Name="Trade_License" ColumnName="Trade_License" />
+          <ScalarProperty Name="Security_Code" ColumnName="Security_Code" />
+          <ScalarProperty Name="Other_information" ColumnName="Other_information" />
+          <ScalarProperty Name="ID_Expire_Date" ColumnName="ID_Expire_Date" />
+          <ScalarProperty Name="ID_Upload" ColumnName="ID_Upload" />
+          <ScalarProperty Name="Passport_Expire_Date" ColumnName="Passport_Expire_Date" />
+          <ScalarProperty Name="Passport_Upload" ColumnName="Passport_Upload" />
+          <ScalarProperty Name="Company_TL_Expire_Date" ColumnName="Company_TL_Expire_Date" />
+          <ScalarProperty Name="Comany_TL_Upload" ColumnName="Comany_TL_Upload" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Comany_Image_Upload" ColumnName="Comany_Image_Upload" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.AspNetRole)">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.AspNetUserRole)">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.AspNetUser)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="custom_setting">
+      <EntityTypeMapping TypeName="IsTypeOf(RegisterDBModel.custom_setting)">
+        <MappingFragment StoreEntitySet="custom_setting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+          <ScalarProperty Name="smtp_domain" ColumnName="smtp_domain" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="notify_email" ColumnName="notify_email" />
+          <ScalarProperty Name="theme" ColumnName="theme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

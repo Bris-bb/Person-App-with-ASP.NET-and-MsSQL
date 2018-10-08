@@ -1,0 +1,74 @@
+﻿@model PersonApp.Models.custom_setting
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>custom_setting</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.admin_email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.admin_email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.smtp_domain)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.smtp_domain)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.port)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.port)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.notify_email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.notify_email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.theme)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.theme)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AspNetUser.Email)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

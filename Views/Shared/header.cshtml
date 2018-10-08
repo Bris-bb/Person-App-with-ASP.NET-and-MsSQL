@@ -1,0 +1,227 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Personal App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
+
+    @Styles.Render("~/assets/global/plugins/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css")
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Styles.Render("~/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css")
+
+    @Styles.Render("~/assets/global/plugins/datatables/datatables.min.css")
+    @Styles.Render("~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css")
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    @Styles.Render("~/assets/global/css/components.min.css")
+    @Styles.Render("~/assets/global/css/plugins.min.css")
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    @Styles.Render("~/assets/layouts/layout3/css/layout.min.css")
+    @Styles.Render("~/assets/layouts/layout3/css/themes/default.min.css")
+    @Styles.Render("~/assets/layouts/layout3/css/custom.min.css")
+
+    @Scripts.Render("~/assets/global/plugins/jquery.min.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/assets/global/plugins/js.cookie.min.js")
+    @Scripts.Render("~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
+    @Scripts.Render("~/assets/global/plugins/jquery.blockui.min.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js")
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Scripts.Render("~/assets/global/scripts/datatable.js")
+    @Scripts.Render("~/assets/global/plugins/datatables/datatables.min.js")
+    @Scripts.Render("~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js")
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    @Scripts.Render("~/assets/global/scripts/app.min.js")
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    @Scripts.Render("~/assets/pages/scripts/table-datatables-ajax.min.js")
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    @Scripts.Render("~/assets/layouts/layout3/scripts/layout.min.js")
+    @Scripts.Render("~/assets/layouts/layout3/scripts/demo.min.js")
+    @Scripts.Render("~/assets/layouts/global/scripts/quick-sidebar.min.js")
+    @Scripts.Render("~/assets/layouts/global/scripts/quick-nav.min.js")
+
+
+    <script>
+        window.applicationBaseUrl = @Html.Raw(HttpUtility.JavaScriptStringEncode(Url.Content("~/"), true));
+    </script>
+
+    @Styles.Render("~/assets/css/blue.css")
+
+    
+    <script>
+        function in_array(array, id) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] === id)
+                    return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-expand-lg  navbar-dark " style="border-bottom: 15px solid #475368; background-color:white;margin-bottom:0">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="padding: 20px 0;">
+            <div class="col-md-2">
+                <label>Look & Find: </label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="col-md-2" style="font-size: 15px;">
+            @Html.Partial("_LoginPartial")
+
+        </div>
+    </div>
+    <div class="body_container row">
+        <div class="col-md-2 left_container">
+            <div class="">
+                @if (Model != "Login")
+                {
+                <div id="user_logo">
+                    @if (ViewBag.user_img == null)
+                    {
+                        <img src="~/assets/upload/user.png" class="doc_img">
+                    }
+                    else
+                    {
+                        <img src="~/assets/upload/@ViewBag.user_img" class="doc_img">
+                    }
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-8 main_container">
+            <div class="">
+                <div class="row" style="margin-top: 10px;">
+                    @if (ViewBag.role == "admin")
+                    {
+
+                        if (Model == "Dashboard")
+                        {
+                            <div class="nav-item active">
+                                <a class="nav-link" href="~/Personals/Dashboard">Dashboard</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link" href="~/Personals/Dashboard">Dashboard</a>
+                            </div>
+                        }
+                    }
+                    @if (ViewBag.flg_exist == false)
+                    {
+                        if (Model == "Add")
+                        {
+                        <div class="nav-item active">
+                            <a class="nav-link" href="~/Personals/Create">Add</a>
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="nav-item">
+                            <a class="nav-link" href="~/Personals/Create">Add</a>
+                        </div>
+                        }
+                    }
+                    @if (ViewBag.flg_exist == true)
+                    {
+                        if (Model == "Update")
+                        {
+                        <div class="nav-item active">
+                            <a class="nav-link active" href="~/Personals/UpdatePersonal">Update</a>
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="nav-item">
+                            <a class="nav-link" href="~/Personals/UpdatePersonal">Update</a>
+                        </div>
+                        }
+                    }
+                    @if (ViewBag.role == "admin" || ViewBag.role == "normal")
+                    {
+                        if (Model == "Calendar")
+                        {
+                        <div class="nav-item active">
+                            <a class="nav-link active" href="~/Events/Index">Calendar</a>
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="nav-item">
+                            <a class="nav-link" href="~/Events/Index">Calendar</a>
+                        </div>
+                        }
+                    }
+                    @if (ViewBag.role == "admin")
+                    {
+                        if (Model == "Notify")
+                        {
+                            <div class="nav-item active">
+                                <a class="nav-link active" href="~/Personals/Notify">Notify</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link" href="~/Personals/Notify">Notify</a>
+                            </div>
+                        }
+                        if (Model == "the Book")
+                        {
+                            <div class="nav-item active">
+                                <a class="nav-link active" href="~/Personals/Index">the Book</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link" href="~/Personals/Index">the Book</a>
+                            </div>
+                        }
+                        if (Model == "Search")
+                        {
+                            <div class="nav-item active">
+                                <a class="nav-link active" href="~/Personals/Search">Search</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link" href="~/Personals/Search">Search</a>
+                            </div>
+                        }
+                        if (Model == "Report")
+                        {
+                            <div class="nav-item active">
+                                <a class="nav-link active" href="~/Personals/Report">Reports+</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="nav-item">
+                                <a class="nav-link" href="~/Personals/Report">Reports+</a>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="row edit_container">

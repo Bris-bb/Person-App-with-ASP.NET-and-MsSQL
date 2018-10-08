@@ -1,0 +1,224 @@
+﻿@model PersonApp.Models.Personal
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Personal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Insider_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insider_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insider_Name_arabic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insider_Name_arabic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company_Name_arabic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_Name_arabic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position_arabic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position_arabic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UAE_Resident)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UAE_Resident)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UAE_Resident_arabic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UAE_Resident_arabic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emirates_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emirates_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passport_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passport_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Office_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Office_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_Address_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_Address_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trade_License)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trade_License)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Security_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Security_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other_information)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other_information)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Expire_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Expire_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Upload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Upload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passport_Expire_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passport_Expire_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passport_Upload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passport_Upload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company_TL_Expire_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_TL_Expire_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comany_TL_Upload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comany_TL_Upload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comany_Image_Upload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comany_Image_Upload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

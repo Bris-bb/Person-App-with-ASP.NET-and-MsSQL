@@ -1,0 +1,177 @@
+﻿@model IEnumerable<PersonApp.Models.Personal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Insider_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Insider_Name_arabic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Name_arabic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position_arabic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UAE_Resident)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UAE_Resident_arabic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emirates_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passport_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Office_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_Address_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trade_License)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Security_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Other_information)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Expire_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Upload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passport_Expire_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passport_Upload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_TL_Expire_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comany_TL_Upload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comany_Image_Upload)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Insider_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Insider_Name_arabic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Name_arabic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position_arabic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAE_Resident)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAE_Resident_arabic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emirates_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passport_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Office_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_Address_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trade_License)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Security_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Other_information)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Expire_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Upload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passport_Expire_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passport_Upload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_TL_Expire_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comany_TL_Upload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comany_Image_Upload)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

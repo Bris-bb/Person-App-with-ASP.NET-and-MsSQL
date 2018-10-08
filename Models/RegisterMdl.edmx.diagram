@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8464185828f045ff8fd816d735b386d5" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="RegisterDBModel.AspNetUserClaim" PointX="3" PointY="8.5" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.AspNetUserLogin" PointX="3" PointY="6" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.Notify" PointX="5.25" PointY="13.5" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.Personal" PointX="3" PointY="11.25" Width="1.5" />
+        <AssociationConnector Association="RegisterDBModel.FK_Notify_Personal" />
+        <EntityTypeShape EntityType="RegisterDBModel.Event" PointX="3" PointY="18.375" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.AspNetRole" PointX="3.75" PointY="3.5" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.AspNetUserRole" PointX="6" PointY="10.25" Width="1.5" />
+        <EntityTypeShape EntityType="RegisterDBModel.AspNetUser" PointX="0.75" PointY="10" Width="1.5" />
+        <AssociationConnector Association="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="RegisterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="RegisterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="RegisterDBModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="RegisterDBModel.FK_Event_AspNetUsers" />
+        <AssociationConnector Association="RegisterDBModel.FK_Personal_Personal" />
+        <EntityTypeShape EntityType="RegisterDBModel.custom_setting" PointX="3" PointY="21.75" Width="1.5" />
+        <AssociationConnector Association="RegisterDBModel.FK_custom_setting_AspNetUsers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

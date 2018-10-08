@@ -1,0 +1,137 @@
+﻿@model IEnumerable<PersonApp.Models.Personal>
+
+@{
+    Layout = null;
+}
+<style>
+    table {
+        height: 300px;
+        overflow: auto;
+    }
+
+        table tr, td {
+            height: 45px;
+        }
+
+        table img {
+            width: 40px;
+        }
+
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        height: 500px !important;
+    }
+</style>
+@Html.Partial("header", "Dashboard")
+
+<a href="/PersonApp/custom_setting/create" style="float:right;" title="settings" id="settingLink"><img src="~/assets/img/cogwheel.png" /></a>
+
+
+<div id="container" style="width: 100%;     height: 510px !important;">
+    <canvas id="canvas"></canvas>
+</div>
+
+<div style="">
+    <a class="" href="~/Personals/Notify">Notifications(@ViewBag.Notifies)</a>
+    <div class="notification_container">
+        <table class="table" id="sample_1" style="height: 190px;">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Passport
+                    </th>
+                    <th>
+                        Company TL
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AspNetUser.Email)
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/assets/upload/@item.ID_Upload" title="@item.ID_Upload" />
+                    </td>
+                    <td>
+                        <img src="~/assets/upload/@item.Passport_Upload" title="@item.Passport_Upload" />
+                    </td>
+                    <td>
+                        <img src="~/assets/upload/@item.Comany_TL_Upload" title="@item.Comany_TL_Upload" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+@Html.Partial("right_container", "Dashboard")
+</div>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="~/Scripts/my/dashboard.js"></script>
+
+<script src="~/Scripts/my/Chart.bundle.js"></script>
+<script src="~/Scripts/my/utils.js"></script>
+
+<script>
+    var MONTHS = [''];
+    var color = Chart.helpers.color;
+    var barChartData = {
+        labels: [''],
+        datasets: [{
+            label: 'Insiders',
+            backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.red,
+            borderWidth: 1,
+            data: [
+                @ViewBag.Insiders, @ViewBag.Insiders
+            ]
+        }, {
+            label: 'Expired',
+            backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.blue,
+            borderWidth: 1,
+            data: [
+                @ViewBag.Expired, 0
+            ]
+        }]
+    };
+
+    window.onload = function () {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: ''
+                },
+                scales: {
+                    xAxes: [{
+                        barPercentage: 0.2
+                    }]
+                }
+            }
+        });
+
+    };
+
+</script>

@@ -1,0 +1,359 @@
+﻿@model PersonApp.Models.Personal
+
+<style>
+    .upload_container{
+        border: 1px solid gray;
+    }
+</style>
+@{
+    Layout = null;
+}
+@Html.Partial("header", "Update")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row">
+        <div class="col-md-6">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Insider_Name, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Insider_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Insider_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Company_Name, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Company_Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Company_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.UAE_Resident, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.UAE_Resident, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.UAE_Resident, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Emirates_ID, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Emirates_ID, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Emirates_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Passport_Number, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Passport_Number, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Passport_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Mobile_Number, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Mobile_Number, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Mobile_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Office_Number, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Office_Number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Office_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.User_Id, "User_Id", htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.DropDownList("User_Id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.User_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Email_Address_2, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Email_Address_2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email_Address_2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-md-5" for="Trade_License">Trade_License(*)</label>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Trade_License, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Trade_License, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Security_Code, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Security_Code, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Security_Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Other_information, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Other_information, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Other_information, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Insider_Name_arabic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Insider_Name_arabic, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label col-md-5" for="Insider_Name_arabic">arabic</label>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Company_Name_arabic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Company_Name_arabic, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label col-md-5" for="Insider_Name_arabic">arabic</label>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Position_arabic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Position_arabic, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label col-md-5" for="Insider_Name_arabic">arabic</label>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.UAE_Resident_arabic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UAE_Resident_arabic, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label col-md-5" for="Insider_Name_arabic">arabic</label>
+            </div>
+
+
+            <div class="form-group row" style="margin-top: 50px;">
+                <div class="col-md-offset-4 col-md-7">
+                    <h2>Upload Center</h2>
+                </div>
+            </div>
+            <div class="upload_container">
+                <div class="row  ">
+                    <div class="col-md-4">
+                        ID
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="id_upload_btn">Upload Documents</button>
+                    </div>
+                    <div class="col-md-2">
+                        <img class="id_check_mark" src="~/assets/img/repeat.png">
+                        <input required type="hidden" class="id_Upload" id="id_Upload" name="id_Upload" />
+                        <input required type="hidden" class="id_expire_date" id="id_expire_date" name="id_expire_date" />
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-4">
+                        Passport
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="passport_upload_btn">Upload Documents</button>
+                    </div>
+                    <div class="col-md-2">
+                        <img class="passport_check_mark" src="~/assets/img/repeat.png">
+                        <input required type="hidden" class="passport_Upload" id="passport_Upload" name="passport_Upload" />
+                        <input required type="hidden" class="passport_expire_date" id="passport_expire_date" name="passport_expire_date" />
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-4">
+                        Company TL
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="company_tl_upload_btn">Upload Documents</button>
+                    </div>
+                    <div class="col-md-2">
+                        <img class="company_tl_check_mark" src="~/assets/img/repeat.png">
+                        <input required type="hidden" class="company_tl_Upload" id="comany_tl_Upload" name="comany_tl_Upload" />
+                        <input required type="hidden" class="company_tl_expire_date" id="company_tl_expire_date" name="company_tl_expire_date" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group ">
+                <div class="" style="float:right; margin-top: 30px;">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h2>Declaration</h2>
+            <div style="width:100%; padding-left: 50px;">
+                <span style="font-size: 16px;">
+                    By clicking on Submit I confirm that the information above is accurate and that I have understood the
+                    content of the email notice and <a>the legal and redulatory duties entitled</a> and am aware of the sanctions
+                    applicable to insider dealing and unlawful dixclosure of inside information. I have read and consent to
+                    the processing of my personal data as described in <a>the Privacy Policy</a>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+        </div>
+    </div>
+</div>
+@Html.Partial("right_container", "Add")
+</div>
+
+<div class="modal" id="id_upload_mdl" data-val="" data-doc_type="id">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ID upload</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="modal_img_container">
+                            <img src="~/assets/img/credicard_women.png" class="doc_img">
+                            <input type="file" class="form-control postedFile" />
+                            <div class="row image_error_d">
+                                <div class="image_upload_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            Expire Date
+                            <input class="expire_date" type="date" />
+                            <div class=" expire_error_d">
+                                <div class="expire_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="save btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="passport_upload_mdl" data-val="" data-doc_type="passport">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Passport upload</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="modal_img_container">
+                            <img src="~/assets/img/credicard_women.png" class="doc_img">
+                            <input type="file" class="form-control postedFile" />
+                            <div class="row image_error_d">
+                                <div class="image_upload_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            Expire Date
+                            <input class="expire_date" type="date" />
+                            <div class=" expire_error_d">
+                                <div class="expire_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="save btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="company_tl_upload_mdl" data-val="" data-doc_type="company_tl">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Company TL upload</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="modal_img_container">
+                            <img src="~/assets/img/credicard_women.png" class="doc_img">
+                            <input type="file" class="form-control postedFile" />
+                            <div class="row image_error_d">
+                                <div class="image_upload_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            Expire Date
+                            <input class="expire_date" type="date" />
+                            <div class=" expire_error_d">
+                                <div class="expire_message" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="save btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="~/Scripts/my/personal_add.js"></script>
+<script>
+
+</script>

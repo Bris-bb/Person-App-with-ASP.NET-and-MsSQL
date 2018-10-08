@@ -1,0 +1,17 @@
+﻿<div class=" col-md-2 right_container">
+    <div class="">
+        @if (Model != "Login")
+        {
+        <div id="company_logo">
+            @if (ViewBag.company_img == null)
+            {
+                <img src="~/assets/upload/company.png" class="doc_img">
+            }
+            else
+            {
+                <img src="~/assets/upload/@ViewBag.company_img" class="doc_img">
+            }
+        </div>
+        }
+    </div>
+</div>

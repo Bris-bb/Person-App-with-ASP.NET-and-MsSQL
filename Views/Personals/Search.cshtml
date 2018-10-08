@@ -1,0 +1,446 @@
+﻿@model IEnumerable<PersonApp.Models.Personal>
+
+@{
+    Layout = null;
+}
+@Html.Partial("header", "Search")
+
+<style>
+    #sample_1 td img {
+        width: 30px;
+    }
+
+    .notify {
+        background-color: #d1e7fc !important;
+    }
+
+    .filter_container {
+        font-size: 16px;
+        border: 1px solid;
+        display: table;
+        padding: 9px;
+        width: 100%;
+    }
+    #sample_1_wrapper {
+        border: 1px solid;
+        padding: 9px;
+    }
+</style>
+
+<div class="filter_container">
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Email">Email</label>
+            <div class="col-md-7">
+                <input type="hidden" class="filter_item">
+                <input type="hidden" class="filter_item">
+                <input type="hidden" class="filter_item">
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Insider_Name">Insider Name</label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Insider_Name_arabic"></label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Company_Name">Company Name</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Company_Name_arabic"></label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Position">Position</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Position_arabic"></label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="UAE_Resident">UAE Resident</label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="UAE_Resident_arabic"></label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Emirates_ID">Emirates ID</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Passport_Number">Passport Number</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Mobile_Number">Mobile Number</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Office_Number">Office Number</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Email_Address_2">Email Address 2</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="Trade_License">Trade License</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="">Security Code</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="">Other Information</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="">ID Expire Date</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="">Passport Expire Date</label>
+            <div class="col-md-7">
+
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-5" for="">Company TL Date</label>
+            <div class="col-md-7">
+                <input type="text" class="filter_item">
+            </div>
+        </div>
+         
+    </div>
+</div>
+ 
+
+            <table class="table" id="sample_1">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Passport
+                        </th>
+                        <th>
+                            Company TL
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Insider_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Insider_Name_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_Name_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UAE_Resident)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UAE_Resident_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Emirates_ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Passport_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Mobile_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Office_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email_Address_2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Trade_License)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Security_Code)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Other_information)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_Expire_Date)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Passport_Expire_Date)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_TL_Expire_Date)
+                        </th>
+
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comany_Image_Upload)
+                            </th>*@
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Passport
+                        </th>
+                        <th>
+                            Company TL
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Insider_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Insider_Name_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_Name_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UAE_Resident)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UAE_Resident_arabic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Emirates_ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Passport_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Mobile_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Office_Number)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email_Address_2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Trade_License)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Security_Code)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Other_information)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_Expire_Date)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Passport_Expire_Date)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Company_TL_Expire_Date)
+                        </th>
+
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comany_Image_Upload)
+                            </th>*@
+
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr @if (item.status == "notify") { @Html.Raw("class='notify'") }>
+                            <td>
+                                <img src="~/assets/upload/@item.ID_Upload" title="@item.ID_Upload" />
+                            </td>
+                            <td>
+                                <img src="~/assets/upload/@item.Passport_Upload" title="@item.Passport_Upload" />
+                            </td>
+                            <td>
+                                <img src="~/assets/upload/@item.Comany_TL_Upload" title="@item.Comany_TL_Upload" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Insider_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Insider_Name_arabic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Company_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Company_Name_arabic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Position)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Position_arabic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UAE_Resident)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UAE_Resident_arabic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Emirates_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Passport_Number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Mobile_Number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Office_Number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email_Address_2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Trade_License)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Security_Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Other_information)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_Expire_Date)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Passport_Expire_Date)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Company_TL_Expire_Date)
+                            </td>
+
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comany_Image_Upload)
+                                </td>*@
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+@Html.Partial("right_container", "Search")
+</div>
+<script src="~/Scripts/my/personal_search.js"></script>

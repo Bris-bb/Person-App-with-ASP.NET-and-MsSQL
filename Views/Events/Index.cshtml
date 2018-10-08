@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PersonApp.Models.Event>
+
+@{
+    Layout = null;
+}
+@Html.Partial("header", "Calendar")
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+
+<style>
+    .fc-week {
+        height: 100px !important;
+        font-size:14px;
+    }
+</style>
+
+<input type="hidden" id="User_Id" value="@ViewBag.user_id" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="bootstrapModalFullCalendar"></div>
+        </div>
+    </div>
+</div>
+<div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+            <div class="modal-footer">
+                <input type="hidden" id="current_id" />
+                <input type="hidden" id="current_id_" />
+                <button type="button" class="btn btn-default close1" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary remove">Remove</button>
+                @*<a class="btn btn-primary" id="eventUrl" target="_blank">Event Page</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+    <div class="events" style="display:none;">
+        <input class="ID" type="text" value="@item.ID" />
+        <input class="title" type="text" value="@item.title" />
+        <input class="description" type="text" value="@item.description" />
+        <input class="date" type="text" value="@item.date" />
+        <input class="end_date" type="text" value="@item.end_date" />
+        <input class="url" type="text" value="@item.url" />
+    </div>
+}
+
+</div>
+</div>
+</div>
+@Html.Partial("right_container", "Add")
+</div>
+
+
+<script src="~/Scripts/my/calendar.js"></script>
